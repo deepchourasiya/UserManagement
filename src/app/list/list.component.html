@@ -1,0 +1,50 @@
+<div><br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="search" [(ngModel)]="searchname" placeholder="Search By Name" (input)="dem($event)">
+            <button type="button" style="float: right" class="btn btn-default" data-toggle="modal"
+                data-target="#myModal">CREATE</button>
+        </div>
+    </div>
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last_Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+            <th>Action</th>
+            <hr>
+        </tr>
+        <tr *ngFor="let k of data">
+            <td>{{k.id}}</td>
+            <td>{{k.first_name}}</td>
+            <td>{{k.last_name}}</td>
+            <td>{{k.email}}</td>
+            <td><img src="{{k.avatar}}" style="height:53px;width:63px;"></td>
+            <td><span class="fa fa-trash-o" title="delete" (click)="delete(k)" style="cursor: pointer"></span>&nbsp;
+                <span class="fa fa-pencil" title="update" (click)="edit(k)" style="cursor: pointer"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="savedetails()">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>
